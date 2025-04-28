@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" novalidate>
+      <label>Full Name:</label>
+      <input type="text" id="fullName" />
+
+      <label>Email:</label>
+      <input type="email" id="email" />
+
+      <label>Password:</label>
+      <input type="password" id="password" />
+
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmPassword" />
+
+      <label>Phone Number:</label>
+      <input type="text" id="phoneNumber" />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <script>
+            const form = document.getElementById("registrationForm");
+
+            form.addEventListener("submit", function (event) {
+              event.preventDefault(); // prevent actual form submission
+
+              // Get field values
+              const fullName = document.getElementById("fullName").value.trim();
+              const email = document.getElementById("email").value.trim();
+              const password = document.getElementById("password").value;
+              const confirmPassword =
+                document.getElementById("confirmPassword").value;
+              const phoneNumber = document.getElementById("phoneNumber").value.trim();
+
+
+
+              // Full Name Validation
+              if (fullName.length < 3 || !/^[A-Za-z\s]+$/.test(fullName)) {
+              alert("Please enter a valid full name (at least 3 characters).");
+                isValid = false;
+              } else {
+                markValid("fullName");
+              }
+
+              // Email Validation
+              if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert("Please enter a valid email address.");
+                isValid = false;
+              } else {
+                markValid("email");
+              }
+
+              // Password Validation
+              if (
+                !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(password)
+              ) {
+               alert(
+                  "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+                );
+                isValid = false;
+              } else {
+                markValid("password");
+              }
+
+              // Confirm Password Validation
+              if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                    isValid = false;
+              } else {
+                markValid("confirmPassword");
+              }
+
+              // Phone Number Validation
+              if (!/^(96|97|98)[0-9]{8}$/.test(phoneNumber)) {
+            alert(
+                  "Please enter a valid phone number (10 digits, starting with 96, 97, or 98)."
+                );
+                isValid = false;
+              } else {
+                markValid("phoneNumber");
+              }
+      F
+
+            function markValid(fieldId) {
+              document.getElementById(fieldId).classList.add("valid");
+            }
+    </script>
+  </body>
+</html>

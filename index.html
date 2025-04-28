@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <h2>Our Webtech Form!</h2>
     <form method="">
-        <!-- 
+      <!-- 
         action->> The URL to which the form data will be sent when the form is submitted.
         method->> The HTTP method to use when sending the form data (GET or POST).
          -->
-       
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="phone">Phone:</label>
-        <input type="tel" id="phone" name="phone"><br><br>
-        <input type="submit" value="Submit" id="submit">
-    </form>
-</body>
-<script>
-// let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]{2,}$/;// sarojdhakal307 @ gmail . com   email@sarojdhakal.me
-        const phoneRegex = /^[0-9]{10}$/; // 10 digit number
-        if(name ==="" && email === "" && phone === ""){
-            alert("Please fill out the form.");
-            return
-        }
-        if(!emailRegex.test(email)){
-            alert("Please enter a valid email address.");
-            return
-        }
-        if(!phoneRegex.test(phone)){
-            alert("Please enter a valid phone number.");
-            return
-        }
-        document.write("form submitted successfully!<br>");
-    })
-</script>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <label for="phone">Phone:</label>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" /><br /><br />\
+      
+      <input type="tel" id="phone" name="phone" /><br /><br />
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+  </body>
+  <script>
+    // let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    document.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]{2,}$/; // sarojdhakal307 @ gmail . com   email@sarojdhakal.me
+      const phoneRegex = /^(98|97|96)[0-9]{8}$/; // 10 digit number
+      if (name === "" && email === "" && phone === "") {
+        alert("Please fill out the form.");
+        return;
+      }
+
+      if (!email.match(emailRegex)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      if (!phone.match(phoneRegex)) {
+        alert("Please enter a valid phone number.");
+        return;
+      }
+      document.write("form submitted successfully!<br>");
+    });
+  </script>
 </html>
